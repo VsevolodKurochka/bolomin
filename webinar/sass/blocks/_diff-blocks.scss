@@ -1,0 +1,408 @@
+.red{
+  color: setColor(red);
+}
+.green{
+  color: setColor(green);
+  &-light{
+    color: setColor(green, light);
+  }
+}
+.white{
+  color: setColor(light);
+}
+.transition{
+  transition: all ease .5s;
+}
+.pseudo{
+  @include pseudo();
+}
+.btn {
+  border: none;
+  max-width: 100%;
+  padding: 15px 20px;
+  overflow: hidden;
+  z-index: 2;
+  @include border(3px);
+  @extend .relative;
+  @extend .block-inline;
+  @extend .tdn;
+  @extend .bold;
+  @extend .transition;
+  font-size: 14px;
+  //@include color("white");
+  @include resp-min(sm){
+    padding: 10px 40px;
+    @include size(text_default);
+    &-big{
+      padding: 20px 60px;
+    }
+  }
+
+  &-effect{
+   &:before{
+      @extend .pseudo;
+      @extend .transition;
+      z-index: -1;
+      width: 100%;
+      height: 0;
+      top: 50%;
+      left: 50%; 
+      opacity: 0;
+      @include transform(translateX(-50%) translateY(-50%) rotate(45deg));
+    }   
+    &:hover{
+      &:before{
+        height: calc(450% - 40px);
+        opacity: 1;
+      }
+    }
+  }
+  &-red{
+    @extend .black_font;
+    color: setColor(light);
+    @include border(32px);
+    background-color: setColor(red);
+    &:before{
+      background-color: setColor(green);
+    }
+  }
+  &-single{
+    @include resp-min(sm){
+      margin-top: 120px;
+    }
+    @include resp-max(sm){
+      margin-top: 35px;
+    }
+  }
+}
+.list{
+  li{
+    position: relative; 
+    &:after{
+      content: "";
+      position: absolute;
+      top: 0;
+    }
+    @include resp-min(sm){
+      margin-bottom: 15px;
+      &:after{
+        left: 0;
+      }
+    }
+    @include resp-max(sm){
+      text-align: center;
+      margin-bottom: 30px;
+      &:after{
+        left: 50%;
+      }
+    }
+  }
+  &-mark{
+    li{
+      @include resp-min(sm){
+        padding-left: 60px;
+      }
+      @include resp-max(sm){
+        padding-top: 40px;
+      }
+    }
+    &-cancel{
+      @extend .list-mark; 
+      li{
+        &:after{
+          width: 36px;
+          height: 32px;
+          @include bg("../img/cancel.png");
+          @include resp-max(sm){
+            margin-left: -18px;
+          }
+        }
+      }
+    }
+    &-suc{
+      @extend .list-mark; 
+      li{
+        &:after{
+          width: 48px;
+          height: 37px;
+          @include bg("../img/suc.png");
+          @include resp-max(sm){
+            margin-left: -24px;
+          }
+        }
+      }
+    }
+  }
+  &-arrow{
+    li{
+      @include resp-min(sm){
+        padding-left: 50px;
+      }
+      @include resp-max(sm){
+        padding-top: 30px;
+        &:after{
+          margin-left: -13px;
+          transform: rotate(90deg);
+        }
+      }
+      &:after{
+        width: 26px;
+        height: 23px;
+        @include bg("../img/arrowDouble.png");
+      }
+    }
+  }
+}
+.vertical-image{
+  &:before{
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;   
+  }
+  img{
+    max-height: 100%;
+    vertical-align: middle;   
+  }
+}
+.main-form{
+  @extend .relative;
+  width: 100%;
+  @include resp-min(sm){
+    width: 300px;
+  }
+  @extend .center-block;
+  input{
+    background-color: transparent;
+    border: 2px solid setColor(black,dark);
+    @include border(32px);
+    @extend .block-inline;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    color: setColor(light);
+    font-size: 18px;
+    font-style: italic;
+    outline: none;
+    @extend .regular;
+    @extend .transition;
+    &:focus{
+      //border-color: map-get($colors, "corporative");
+    }
+  }
+  .btn{
+    width: 100%;
+  }
+  &-vertical{
+    &:after{
+      @extend .pseudo;
+      left: -40px;
+      top: 50%;
+      margin-top: -50.5px;
+      width: 30px;
+      height: 101px;
+      @include bg("../img/arrow.png");
+    }
+    @include resp-max(sm){
+      padding-left: 20px;
+      padding-right: 20px;
+      &:after{
+        left: -10px;
+      }
+    }
+  }
+  &-special{
+    &:after{
+      @extend .pseudo;
+      top: -110px;
+      right: 0;
+      width: 30px;
+      height: 101px;
+      transform: scale(-1, 1);
+      @include bg("../img/arrow.png");
+    }
+    @include resp-min(sm){
+      width: 560px;
+      input{
+        text-align: left;
+        padding: 24px 15px 24px 50px;
+        color: #000000;
+        @include border(50px);
+      }
+      .btn{
+        position: absolute;
+        width: 300px;
+        height: 64px;
+        top: 5px;
+        right: 5px;
+      }
+    }
+    @include resp-max(sm){
+      padding-left: 15px;
+      padding-right: 15px;
+      &:after{
+        top: 50%;
+        margin-top: -40px;
+        right: -10px;
+        width: 23px;
+        height: 80px;
+      }
+    }
+    input{
+      &::-webkit-input-placeholder{
+        color: #000;
+      }
+      &:-moz-placeholder {
+        color: #000;
+      }
+      &::-moz-placeholder {
+        color: #000;
+      }
+      &:-ms-input-placeholder {
+        color: #000;
+      }
+    }
+    
+  }
+}
+.circleCenter{
+  position: absolute;
+  left: 50%;
+  margin-left: -34px;
+  bottom: -30px;
+  width: 68px;
+  height: 68px;
+  @include border(100%);
+  background-color: setColor(light);
+  @extend .transition;
+  z-index: 1;
+  &:hover{
+    background-color: setColor(red)
+  }
+  &:after{
+    @extend .pseudo;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    left: 50%;
+    margin-left: -25px;
+    margin-top: -25px;
+    z-index: -1;
+    @include bg("../img/arrowDown.png", 0 0, no-repeat, cover);
+  }
+}
+.study{
+  @extend .text-center;
+  &-img{
+    @extend .vertical-image;
+  }
+  @include resp-min(sm){
+    &-img{
+      height: 140px;
+      margin-bottom: 55px;
+    }
+  }
+  @include resp-max(sm){
+    margin-bottom: 50px;
+    &-img{
+      margin-bottom: 15px;
+    }
+    .h4{
+      font-size: 22px;
+    }
+    &.nom{
+      margin-bottom: 0;
+    }
+  }
+}
+.for-who{
+  @include bg("../img/for-who.jpg", center top, no-repeat, cover);
+  @include resp-min(sm){
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  @include resp-min(lg){
+    padding-top: 180px;
+    padding-bottom: 180px;
+  }
+}
+.big-man{
+  @include resp-min(sm){
+    position: absolute;
+    top: -80px;
+  }
+  @include resp-max(sm){
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.experience{
+  @include bg("../img/experience.jpg", center top, no-repeat, cover);
+}
+.iframe-block{
+  @include resp-max(sm){
+    iframe {
+      width: 100%;
+      height: auto !important;
+    }
+  }
+}
+.exp{
+  text-align: center;
+  opacity: 0.5;
+  @extend .transition;
+  &.active{
+    opacity: 1;
+  }
+  &:hover{
+    opacity: 1;
+  }
+  @include resp-min(xs){
+    display: inline-block;
+    margin-left: -3.5px;
+    width: 50%;
+    @include resp-max(sm){
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
+  @include resp-max(md){
+    margin-bottom: 15px;    
+  }
+  @include resp-min(md){
+    width: 25%;
+  }
+
+}
+.howto{
+  @include resp-min(md){
+    padding-top: 295px;
+    padding-bottom: 0;
+  }
+  &-title{
+    margin: 20px 0;
+    @include resp-min(sm){
+      margin: 40px 0;
+    }
+  }
+  &-logo{
+    margin: 80px 0;
+  }
+}
+.bigManTransparent{
+  position: absolute;
+  @include resp-max(sm){
+    width: 260px;
+    bottom: -80px;
+    margin-left: -130px;
+    left: 50%;
+  }
+  @include resp-min(sm){
+    top: 20px;
+    left: 50%;
+    margin-left: -318px;
+  }
+}

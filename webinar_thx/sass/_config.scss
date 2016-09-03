@@ -1,0 +1,41 @@
+//SETTING FOR DEFAULT FONT
+	$defaultFont: (
+		color: #000,
+		font-family: ProximaRegular,
+		font-size: 18px,
+		line-height: 1.42857143
+	);
+	
+$colors: (
+	black: (
+		base: #000,
+		light: #5d5f60,
+		dark: #383839
+	),
+	red: (
+		base: #e42a1f
+	),
+	green: (
+		base: #25aba0,
+		light: #46b29d
+	),
+ 	corp: (
+		base: #ff8001,
+		light: #ffaa54
+ 	),
+ 	light: (
+		base: #fff
+ 	)
+);
+
+$sizes: (
+	text_smaller    : 12px,
+	text_small      : 14px,
+	text_default    : 18px
+);
+
+$columns         	: 12;
+$width           	: 100%;
+$gutter          	: 15px;
+$container       	: 1170px;
+$container-small 	: 970px;

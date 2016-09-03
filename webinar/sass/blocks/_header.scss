@@ -1,0 +1,54 @@
+/* ===================== 
+Start: HEADER      
+======================== */
+.header {
+	@extend .cf;
+	padding: 40px 0 70px;
+	min-height: 50px;
+	@include bg('../img/bgman.png', center top, no-repeat, cover);
+	&-phone{
+		@extend .block-inline;
+		color: setColor("light");
+	}
+	&-form{
+		p{
+			margin-bottom: 20px;
+		}
+	}
+	&-container-text{
+		margin-top: 25px;
+	}
+	&-date{
+		padding: 5px 15px;
+	  @extend .block-inline;
+	  @include resp-min(xs){
+	  	.pull-xs-right{
+	  		margin-left: 20px;
+	  	}
+	  }
+	  @include resp-min(sm){
+	  	@include bg("../img/tooltip.png");
+	  	height: 57px;
+	  	line-height: 40px;
+	  	padding: 0 35px;
+	  }
+	  @include resp-max(sm){
+	  	border: 2px solid setColor(black, light);
+			@include border(32px);
+	  	width: 100%;
+	  	margin-bottom: 15px;
+	  }
+	}
+}
+@include resp-min(md){
+	.header{
+		padding-bottom: 215px;
+		&-container-text{
+			margin-top: 135px;
+		}
+	}
+}
+
+/* =====================
+End:  HEADER
+======================== */

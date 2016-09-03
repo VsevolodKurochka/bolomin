@@ -1,0 +1,12 @@
+//GET COLOR FUNCTION
+@function setColor($color, $tone: base){
+  @return map-get(map-get($colors, $color), $tone);
+}
+// @function map-deep-get($map, $keys...) {
+//     @each $key in $keys {
+//         $map: map-get($map, $key);
+//     }
+//     @return $map;
+// }
+
+

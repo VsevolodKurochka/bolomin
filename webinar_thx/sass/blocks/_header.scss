@@ -1,0 +1,19 @@
+/* ===================== 
+Start: HEADER      
+======================== */
+.header {
+	@extend .cf;
+	padding: 25px 0;
+	min-height: 50px;
+	@include bg('../img/header.jpg', center top, no-repeat, cover);
+	&-text{
+		@extend .block-inline;
+		color: setColor("light");
+	}
+	&-logo{
+		margin-bottom: 15px;
+	}
+}
+/* =====================
+End:  HEADER
+======================== */

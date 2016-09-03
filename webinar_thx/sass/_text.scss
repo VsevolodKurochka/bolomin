@@ -1,0 +1,119 @@
+$h1-font-sizes: (
+  exs:  24px,
+  sm:   40px,
+  md:   40px
+);
+$h2-font-sizes: (
+  exs:  17px,
+  sm:   18px,
+  md:   34px
+);
+$h3-font-sizes: (
+  exs:  18px,
+  xs:   24px,
+  sm:   29px,
+  md:   40px
+);
+$h4-font-sizes: (
+  exs:  18px,
+  sm:   24px
+);
+.fw-inherit{
+  font-weight: inherit;
+}
+.h1{
+  @include font-size($h1-font-sizes);
+  line-height: 1.1;
+  margin: 20px 0;
+  @extend .fw-inherit;
+  @extend .black_font;
+  @extend .ttu;
+}
+.h2{
+  line-height: 1;
+  @include font-size($h2-font-sizes);
+  @extend .regular;
+  @extend .fw-inherit;
+}
+.h3{
+  @include font-size($h3-font-sizes);
+  @extend .text-center;
+  @extend .ttu;
+  @extend .black_font;
+  &.v-s-m{
+    margin-bottom: 10px;
+  }
+}
+.h{
+  &4{
+    @include font-size($h4-font-sizes);
+    @extend .fw-inherit;
+  }
+}
+@include resp-min(sm){
+  .h3{
+    margin-bottom: 125px;
+    &.s-m{
+      margin-bottom: 50px;
+    }
+
+  }
+}
+@include resp-max(sm){
+  .h{
+    &1,
+    &2{
+      margin: 15px 0;
+    }
+    &3{
+      margin-bottom: 30px;
+    }
+  }
+}
+.column-title{
+  @extend .ttu;
+  @extend .black_font;
+  margin-bottom: 30px;
+  @include resp-min(sm){
+    &.s-m{
+      margin-bottom: 50px;
+    }
+    &.b-m{
+      margin-bottom: 70px;
+    }
+  }
+}
+.t{
+  &tu{
+    text-transform: uppercase;
+  }
+  &du{
+    text-decoration: underline;
+  }
+  &dn{
+    text-decoration: none;
+  }
+}
+.text{
+  &-center{
+    text-align: center;
+  }
+  &-left{
+    text-align: left;
+  }
+  &-right{
+    text-align: right;
+  }
+}
+@each $br-name, $br-value in $breakpoints{
+  @include resp-max($br-name){
+    .max-#{$br-name}-center{
+      text-align: center;
+    }
+  }
+  @include resp-min($br-name){
+    .min-#{$br-name}-right{
+      text-align: right;
+    }
+  }
+}

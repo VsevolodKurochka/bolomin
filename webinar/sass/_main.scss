@@ -1,0 +1,40 @@
+body{
+  @each $property, $value in $defaultFont{
+    #{$property}: #{$value};
+  }
+  @include resp-max(md){
+    overflow-x: hidden;
+    position: relative;
+    left: 0;
+    transition: all ease .5s;
+  }
+  
+}
+img{
+  @extend .block-inline;
+  max-width: 100%;
+}
+.z-index{
+  &-1{
+    z-index: 1;
+  }
+}
+input{
+  &:focus{
+    &::-webkit-input-placeholder{
+      color: transparent;
+    }
+    &:-moz-placeholder {
+      color: transparent;
+    }
+    &::-moz-placeholder {
+      color: transparent;
+    }
+    &:-ms-input-placeholder {
+      color: transparent;
+    }
+  }
+}
+a,button{
+  cursor: pointer;
+}
